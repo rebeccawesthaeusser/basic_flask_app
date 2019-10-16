@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <title>Database</title>
+ </head>
+ <body>
+    {% extends "navigation.html" %}
+    {% block body %}
+
+    <h1>Database action</h1>
+    <br>
+    <div>
+        <form method="GET" action="{{ url_for('database_action_search') }}">
+            <div>
+                <h2>Find a User</h2><br>
+                <label>
+                    <input type="text" name="search_user" placeholder="Enter a username">
+                </label>
+                <label><button type="submit">Find User</button></label>
+                <br>
+                <label>{{ username_search }} {{ message_search }}</label>
+            </div>
+        </form>
+    <br>
+        <div>
+            <form method="POST" action="{{ url_for('database_action_add') }}">
+                <div>
+                    <h2>Add a User</h2><br>
+                    <label>
+                        <input type="text" name="add_user" placeholder="Enter a username">
+                    </label>
+                    <label><button type="submit">Add User</button></label>
+                </div>
+                <br>
+                <label>{{ username_add }} {{ message_add }}</label>
+            </form>
+        </div>
+     <br>
+        <div>
+            <form method="POST" action="{{ url_for('database_action_delete') }}">
+                <div>
+                    <h2>Delete a User</h2><br>
+                    <label>
+                        <input type="text" name="delete_user" placeholder="Enter a username">
+                    </label>
+                    <label><button type="submit">Delete User</button></label>
+                </div>
+                <br>
+                <label>{{ username_delete }} {{ message_delete }}</label>
+            </form>
+        </div>
+    <br>
+        <div>
+            <form method="POST" action="{{ url_for('database_action_update') }}">
+                <div>
+                    <h2>Update a User</h2><br>
+                    <label>
+                        <input type="text" name="update_user" placeholder="Enter the Name"><br>
+                        <input type="text" name="update_age" placeholder="Enter the Age"><br>
+                    </label>
+                    <label><button type="submit">Update User</button></label>
+                </div>
+                <br>
+                <label>{{ username_update }} {{ message_update }}</label>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
+ </body>
+</html>
